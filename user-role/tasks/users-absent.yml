@@ -1,0 +1,20 @@
+- name: "Delete users"
+  user:
+    name: "{{ item.name }}"
+    state: absent
+  when:
+    ((list is defined and item.name in list) or (list is not defined)) and
+    (item.state is defined and item.state == "absent")
+  with_items:
+    "{{ user_users }}"
+
+- name: "Delete per-user groups"
+  group:
+    name: "{{ item.name }}"
+    state: absent
+  when:
+    (users_per_user_group) and
+    ((list is defined and item.name in list) or (list is not defined)) and
+    (item.state is defined and item.state == "absent")
+  with_items:
+    "{{ user_users }}"

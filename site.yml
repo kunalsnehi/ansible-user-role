@@ -1,0 +1,10 @@
+---
+- name: Configure Users
+  hosts: all
+  become: true
+  become_user: root
+  become_method: sudo
+  roles:
+    - { role: user_role, list: ['kunal','akash','ankur','charlie'] }
+    
+

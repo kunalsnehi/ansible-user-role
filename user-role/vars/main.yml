@@ -1,0 +1,42 @@
+---
+- vars:
+    user_users:
+      - name: Kunal
+        state: present
+        fullname: Kunal Snehi
+        email: kunal@example.com
+        password: 'kunal1234'
+        sudo: yes
+        ssh_keys: []
+      - name: akash
+        state: present
+        fullname: Akash Sharma
+        email: akash@example.com
+        shell: /bin/zsh
+        password: 'akash1234'
+        ssh_keys: []
+      - name: Ankur
+        state: present
+        fullname: Ankur Jaiswal
+        email: ankur@example.com
+        password: 'ankur@1234'
+        
+                groups:
+          - root
+        ssh_keys:
+          - key: AAAAB3NzaC1yc2EAAAADAQABAAACAQD1N9uJAGA42v0vrve+X005d8ls7Cq2Q+cZKQclT2uOexr5qmwNjTiLw8XQBkvyYUHNeljQxi+p1eUzPX7hWDBdGXjN7w303Be1IUvD9Zmc1I1gMb2uFRu+5KdruSP2ncfCkWrXPkVSnA31ostV0ARkwpWhZ1mFZpudCDPNS+lWxcsj1GspW+s8+7eKQ4hTull9S//X2YmIBiXXAbjAsyPIeTZIQ1DZgEMcTcRCbKeEZOTgbhL3iNfKP17XksUGF6KJlhgNYalNW3VR7pdB1qqM6VUBuPkuxtTJmLzQ1GAJMYouF9thkdcz8VRJekLRuA5yi9wa4qVRQ8/vqHlDRxWRYeILazjpXVnjFZbY79ES4thdxeOKz+PG95MCLCoPmcIEENbKZO1r9qHUvxHwKpkyiAsdnovBnaagQSvdFRUmVW/33zGWfZ0v0xR6h/zABbaB1h1TltljTp80ylwaf29OHyGBxa6RHpIptaAF0+a6Gn+uMwtZaKco5ixNDgeqS2XKO/Hy3UhVw2mH9fomrezFkXSvtn1NUe/xutP8UKSiTBz8gaFWPH3OP9cUI/xpvTJ4gILTzTvCpvBliW51lsPoQv8MHUxKSVlo050nS7u2lJi+zMx+uMkEOhFosbQOlPiCVHZ/eePGTQyYsAMEkkViC/8Yi3eX3800vSEbGsmYzQ==
+          - type: ssh-rsa
+            
+      - name: charlie
+        state: absent
+        fullname: Charlie Dog
+        ssh_keys: []
+    user_groups:
+      - name: users
+        state: present
+      - name: staff
+        state: present
+    users_per_user_group: yes
+    users_group_default: users
+    users_groups_default:
+      - staff
